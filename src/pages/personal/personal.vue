@@ -4,11 +4,11 @@
       <li>
         <!-- 调用拍照功能和相册 -->
         <image class="infoImg" :src="imgUrl" alt="" @click="chooseImg"></image>
-        <span class="infoName">萌萌哒的柚子</span>
+        <span class="infoName">萌萌哒的**</span>
       </li>
       <li>
         <span class="infoName">籍贯</span>
-        <span class="infoName">芜湖</span>
+        <span class="infoName">**</span>
       </li>
       <li>
         <span class="infoName">民族</span>
@@ -16,7 +16,7 @@
       </li>
       <li>
         <span class="infoName">居住地</span>
-        <span class="infoName">合肥</span>
+        <span class="infoName">**</span>
       </li>
     </ul>
     <!-- <image :src="tempFilePaths" mode="aspecFill" style="width: 100%; height: 450rpx"></image>   -->
