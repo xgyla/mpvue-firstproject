@@ -1,0 +1,53 @@
+@import "../../styles/common.css"; //公共字体图标文件
+@import "../../styles/base.styl"; //公共样式文件
+#list
+  width: 100%
+  min-height: 100vh
+  background-color #ffffff
+  .list-top
+    width: 100%
+    height: 43px
+    display flex
+    justify-content: space-between
+    align-items: center
+    padding: 5px 18px
+    background-color: rgb(35,220,220)
+    position: fixed
+    top 0   //设置top不跟随下拉刷新
+    box-sizing: border-box
+    .top-info
+      display: flex
+      align-items: center
+      .top-address
+        font-size: 16px
+      image
+        width: 12px
+        height: 12px  
+        transform: rotate(90deg)
+  .list-middle
+    background-color #ccc
+    padding: 5px 18px
+    padding-top: 43px
+    .tips-near   
+      text-align: center   
+    .list-store
+      li
+        background-color #fff
+        padding: 20px
+        margin-bottom: 18px
+        .store-name
+          display: flex
+          justify-content: space-between
+          margin-bottom: 8px
+          span:nth-child(1)
+            font-size: 14px
+          span:nth-child(2)
+            font-size: 12px  
+        
+        
+
+
+
+
+          
+

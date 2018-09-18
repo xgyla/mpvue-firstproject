@@ -18,7 +18,8 @@
     <div class="toLink" @click="tobird">跳转页面</div>
     <div class="toLink" @click="toPersonal">个人中心</div>
     <div class="toLink" @click="toIndex">跳index页面</div>
-    <div class="toLink" @click="toLogs">跳转logs页面</div>
+    <div class="toLink" @click="toList">跳转list页面</div>
+    <div @click="toReports">报表营业员</div>
   </div>
 </template>
 
@@ -81,9 +82,12 @@ export default {
     toIndex(){
       wx.navigateTo({url:'/pages/index/main'}) 
     },
-    toLogs(){
-      wx.navigateTo({url:'/pages/logs/main'}) 
-    }
+    toList(){
+      wx.navigateTo({url:'/pages/list/main'}) 
+    },
+    toReports(){
+      wx.navigateTo({url:'/pages/reports/main'}) 
+    },
   }
 }
 </script>
