@@ -1,0 +1,59 @@
+@import "../../styles/common.css"; //公共字体图标文件
+#member
+  width 100%
+  height 100vh
+  background-color rgb(153,217,234)
+  .member-top
+    height: 40px
+    padding: 5px 10px
+    border-bottom: 1px solid #cccccc
+    display: flex
+    .notice
+      margin-right: 4px
+      line-height: 40px
+    .noticeTxt
+      font-size: 14px 
+      font-weight: 600
+      line-height: 40px
+  // 文字上下滚动效果
+  .swiper-box
+    position: relative;
+    height: 80rpx;
+    line-height: 80rpx;
+    padding: 0 40rpx;
+    background-color: #FFEBCD;
+    overflow: hidden;
+  .swiper-box .item
+    white-space: nowrap;
+    text-overflow: ellipsis;
+
+    // 
+  .srcoll_view
+    position: absolute;
+    top:0rpx;
+    height: 100rpx;
+    font-size: 30rpx;
+    white-space: nowrap;
+    line-height: 100rpx;
+    color: #00bff3;
+    animation:myfirst 20s linear infinite;
+    // @keyframes myfirst
+    //   0% 
+    //     margin-left 750px
+    //   100% 
+    //     margin-left -1500px
+  .scroll_view_border
+    position: relative;
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2);
+    height: 100rpx;
+    overflow: hidden;
+    
+    
+  
+
+  
+
+
+
+      

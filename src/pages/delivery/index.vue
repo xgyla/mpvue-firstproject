@@ -23,6 +23,15 @@
 
 <script>
 // import { citys } from '../../utils/city.js'
+// var amapFile = require('../../libs/amap-wx.js');
+
+import amapFile from '../../libs/amap-wx.js'
+// var markersData = {
+//   latitude: '',//纬度
+//   longitude: '',//经度
+//   key: "e8fa26f75c2f41ba87870a42699e2752"//申请的高德地图key
+// };
+
 export default {
   data () {
     return {
@@ -30,7 +39,9 @@ export default {
       // array: ['美国', '中国', '巴西', '日本'],
       // citys: 
       region: ['上海市', '上海市', '徐汇区'],
-      customItem:'全部'
+      customItem:'全部',
+      // latitude:'',
+      // longitude:''
     }
   },
   onPullDownRefresh: function () {
@@ -52,10 +63,58 @@ export default {
     bindRegionChange: function (e) {
       //  console.log(e);
       this.region = e.mp.detail.value
-    }
-  }
+    },
 
+
+    //  获取当前经纬度
+    loadInfo(){
+      wx.getLocation({
+        type:'gcj02',
+        success(res){
+         console.log(res);
+         let latitude = res.latitude
+         let longitude = res.longitude
+        //  this.loadCity(latitude,longitude)
+        }
+      })
+    },
+
+    // 经纬度传给高德地图
+    // loadCity(latitude,longitude){
+    //   let myAmapFun = new amapFile.AMapWX({ key: 'e8fa26f75c2f41ba87870a42699e2752'});
+    //   myAmapFun.getRegeo({
+    //     // location: '' + longitude + ',' + latitude + '',//location的格式为'经度,纬度'
+    //     success: function (data) {
+    //       console.log(data);
+    //     },
+    //     fail: function (info) { }
+    //   });
+    // }
+    
+
+
+
+
+
+
+
+  },
+  onLoad(){
+   this.loadInfo()
+   let myAmapFun = new amapFile.AMapWX({ key: 'e8fa26f75c2f41ba87870a42699e2752'})
+      myAmapFun.getRegeo({
+        // location: '' + longitude + ',' + latitude + '',//location的格式为'经度,纬度'
+        success: function (data) {
+          console.log(data);
+        },
+        fail: function (info) { }
+   })
+  },
+  onShow(){
+    
+  }
 }
+
 </script>
 <style lang="stylus" src="./style.styl"></style>
 

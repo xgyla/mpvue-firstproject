@@ -15,11 +15,12 @@
           {{todoNum}}/{{todos.length}}
         </li>
     </ul>
-    <div class="toLink" @click="tobird">跳转页面</div>
+    <div class="toLink" @click="tobird">bird</div>
     <div class="toLink" @click="toPersonal">个人中心</div>
     <div class="toLink" @click="toIndex">跳index页面</div>
     <div class="toLink" @click="toList">跳转list页面</div>
-    <div @click="toReports">报表营业员</div>
+    <div class="toLink" @click="toReport">跳转report页面</div>
+    <div @click="toMember">会员</div>
   </div>
 </template>
 
@@ -85,9 +86,12 @@ export default {
     toList(){
       wx.navigateTo({url:'/pages/list/main'}) 
     },
-    toReports(){
-      wx.navigateTo({url:'/pages/reports/main'}) 
+    toMember(){
+      wx.navigateTo({url:'/pages/member/main'}) 
     },
+    toReport(){
+      wx.navigateTo({url:'/pages/reports/main'}) 
+    }
   }
 }
 </script>
@@ -108,6 +112,7 @@ input{
 }
 .toLink{
   font-size: 20px;
-  color:#ccc
+  color:#ccc;
+  margin-bottom: 30px
 }
 </style>
