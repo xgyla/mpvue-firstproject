@@ -1,4 +1,4 @@
-<template>
+ <template>
   <div id="delivery">
     <div class="delivery-top">
        <picker mode="region" @change="bindRegionChange" :value="region" :custom-item="customItem">
@@ -18,6 +18,7 @@
         </div>
       </div>
     </div>
+    <image src="../../static/assets/img/decBg.jpg" class="decImg" mode="aspectFill"></image>
   </div>
 </template>
 
@@ -101,14 +102,14 @@ export default {
   },
   onLoad(){
    this.loadInfo()
-   let myAmapFun = new amapFile.AMapWX({ key: 'e8fa26f75c2f41ba87870a42699e2752'})
-      myAmapFun.getRegeo({
-        // location: '' + longitude + ',' + latitude + '',//location的格式为'经度,纬度'
-        success: function (data) {
-          console.log(data);
-        },
-        fail: function (info) { }
-   })
+  //  let myAmapFun = new amapFile.AMapWX({ key: 'e8fa26f75c2f41ba87870a42699e2752'})
+  //     myAmapFun.getRegeo({
+  //       // location: '' + longitude + ',' + latitude + '',//location的格式为'经度,纬度'
+  //       success: function (data) {
+  //         console.log(data);
+  //       },
+  //       fail: function (info) { }
+  //  })
   },
   onShow(){
     
