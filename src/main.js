@@ -26,22 +26,20 @@ export default {
       navigationBarTitleText: 'WeChat',
       navigationBarTextStyle: 'black'
     },
-    // "tabBar": {//设置Tab页样式
-    //   "list": [//设置Tab页列表，最大支持5个
-    //     {
-    //       "pagePath": "pages/bird/main",
-    //       "text": "鸟页面",
-    //       "iconPath": "./static/assets/img/tab.png",
-    //       "selectedIconPath": "./static/assets/img/tab.png"
-    //     },
-    //     {
-    //       "pagePath": "pages/member/main",
-    //       "text": "会员页面",
-    //       "iconPath": "./static/assets/img/tab.png",
-    //       "selectedIconPath": "./static/assets/img/tab.png"
-    //     }
-    //   ],
-    //   "borderStyle":"white"
-    // },
+    tabBar: {
+      "color": "#202020",
+      "selectedColor": "#ec5045",
+      "list": [{
+        pagePath: "pages/counter/main",
+        text: "首页",
+        iconPath: "/static/assets/img/tab.png",
+        selectedIconPath: "/static/assets/img/tab.png",
+      }, {
+        pagePath: "pages/logs/main",
+        text: "日志",
+        iconPath: "/static/assets/img/tab.png",
+        selectedIconPath: "/static/assets/img/tab.png",
+      }]
+    },
   }
 }

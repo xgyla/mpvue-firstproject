@@ -19,14 +19,23 @@
       </div>
     </div>
     <image src="../../static/assets/img/decBg.jpg" class="decImg" mode="aspectFill"></image>
+    <div>
+      <!-- 不显示问题 -->
+     {{weatherInfo}} : {{weatherInfo.city}}
+    </div>
+    <div>
+      <!-- {{weatherInfo.weather.text}} : {{weatherInfo.weather.data}} -->
+    </div>
   </div>
 </template>
 
 <script>
 // import { citys } from '../../utils/city.js'
+
 // var amapFile = require('../../libs/amap-wx.js');
 
 import amapFile from '../../libs/amap-wx.js'
+
 // var markersData = {
 //   latitude: '',//纬度
 //   longitude: '',//经度
@@ -41,8 +50,7 @@ export default {
       // citys: 
       region: ['上海市', '上海市', '徐汇区'],
       customItem:'全部',
-      // latitude:'',
-      // longitude:''
+      weatherInfo:""
     }
   },
   onPullDownRefresh: function () {
@@ -69,13 +77,14 @@ export default {
 
     //  获取当前经纬度
     loadInfo(){
+      let that = this
       wx.getLocation({
         type:'gcj02',
         success(res){
          console.log(res);
          let latitude = res.latitude
          let longitude = res.longitude
-        //  this.loadCity(latitude,longitude)
+        //  that.loadCity(latitude,longitude)
         }
       })
     },
@@ -84,7 +93,7 @@ export default {
     // loadCity(latitude,longitude){
     //   let myAmapFun = new amapFile.AMapWX({ key: 'e8fa26f75c2f41ba87870a42699e2752'});
     //   myAmapFun.getRegeo({
-    //     // location: '' + longitude + ',' + latitude + '',//location的格式为'经度,纬度'
+    //     location: '' + longitude + ',' + latitude + '',//location的格式为'经度,纬度'
     //     success: function (data) {
     //       console.log(data);
     //     },
@@ -92,27 +101,29 @@ export default {
     //   });
     // }
     
-
-
-
-
-
-
-
+     loadWeather(){
+          var that = this;
+          var myAmapFun = new amapFile.AMapWX({key:'e8fa26f75c2f41ba87870a42699e2752'});
+          myAmapFun.getWeather({
+            success: function(data){
+              console.log(data);
+              //成功回调
+              this.weatherInfo = data
+              console.log(this.weatherInfo)
+            },
+            fail: function(info){
+              //失败回调
+              console.log(info)
+            }
+          })
+     }
   },
   onLoad(){
    this.loadInfo()
-  //  let myAmapFun = new amapFile.AMapWX({ key: 'e8fa26f75c2f41ba87870a42699e2752'})
-  //     myAmapFun.getRegeo({
-  //       // location: '' + longitude + ',' + latitude + '',//location的格式为'经度,纬度'
-  //       success: function (data) {
-  //         console.log(data);
-  //       },
-  //       fail: function (info) { }
-  //  })
+   this.loadWeather()
   },
   onShow(){
-    
+
   }
 }
 
